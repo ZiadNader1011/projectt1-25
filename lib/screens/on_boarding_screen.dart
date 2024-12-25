@@ -1,0 +1,90 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project/screens/login_screen.dart';
+
+class OnBoardingScreen extends StatelessWidget {
+  const OnBoardingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 2,
+            child: Stack(
+              children: [
+                Image.asset('assets/images/bg_1.png'),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          width: 190.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(100.r),
+                              ),
+                              color: Theme.of(context).colorScheme.surface),
+                          child: Image.asset('assets/images/app_icon.png')),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Text(
+            "providing personalized care, timely medication reminders",
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.w400,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Spacer(),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => LoginScreen(),
+              ));
+            },
+            child: Container(
+              width: 317.w,
+              height: 50.h,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.r),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    'Get Started For Free',
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                    size: 50.0,
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 120.h,
+          )
+        ],
+      ),
+    );
+  }
+}

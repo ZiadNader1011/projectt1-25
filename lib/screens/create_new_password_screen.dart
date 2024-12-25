@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../widgets/app_button.dart';
+import '../widgets/app_icon.dart';
+
+class CreateNewPasswordScreen extends StatefulWidget {
+  const CreateNewPasswordScreen({super.key});
+
+  @override
+  State<CreateNewPasswordScreen> createState() =>
+      _CreateNewPasswordScreenState();
+}
+
+class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // title: const Text('Forget Password'),
+        leading: IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+      ),
+      body: Column(
+        children: [
+          AppIcon(
+            width: 200.w,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'New Password',
+                style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 77.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 58.0.w),
+            child: Text(
+              'Create your new password to login',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 17.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 58.0.w),
+            child: SizedBox(
+              height: 75.h,
+              child: TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    // color: Colors.green,
+                  ),
+                  border: OutlineInputBorder(),
+                  fillColor: Colors.grey,
+                  filled: true,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 58.0.w),
+            child: SizedBox(
+              height: 75.h,
+              child: TextField(
+                controller: confirmPasswordController,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    // color: Colors.green,
+                  ),
+                  border: OutlineInputBorder(),
+                  fillColor: Colors.grey,
+                  filled: true,
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigator.of(context).pushReplacement(MaterialPageRoute(
+              //   builder: (context) => const VerifyCodeScreen(),
+              // ));
+            },
+            child: AppButton(
+              radius: 100,
+              width: 200.w,
+              height: 75.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'NEXT',
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                    size: 50.0,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

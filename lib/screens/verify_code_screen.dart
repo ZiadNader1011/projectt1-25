@@ -1,0 +1,126 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_verification_code/flutter_verification_code.dart';
+import 'package:project/screens/create_new_password_screen.dart';
+
+import '../widgets/app_button.dart';
+import '../widgets/app_icon.dart';
+
+class VerifyCodeScreen extends StatefulWidget {
+  const VerifyCodeScreen({super.key});
+
+  @override
+  State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
+}
+
+class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
+  String _code = '';
+  bool _onEditing = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // title: const Text('Forget Password'),
+        leading: IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+      ),
+      body: Column(
+        children: [
+          AppIcon(
+            width: 200.w,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Verify Code',
+                style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 77.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 58.0.w),
+            child: Text(
+              'Confirmation code sent via email',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 17.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 58.0.w),
+            child: VerificationCode(
+              textStyle: TextStyle(fontSize: 20.0, color: Colors.red[900]),
+              keyboardType: TextInputType.number,
+              fillColor: Colors.white,
+              fullBorder: true,
+              margin: EdgeInsets.all(8.0),
+              underlineColor: Colors
+                  .black, // If this is null it will use primaryColor: Colors.red from Theme
+              length: 4,
+              cursorColor:
+                  Colors.blue, // If this is null it will default to the ambient
+              // clearAll is NOT required, you can delete it
+              // takes any widget, so you can implement your design
+              clearAll: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'clear all',
+                  style: TextStyle(
+                      fontSize: 14.0,
+                      decoration: TextDecoration.underline,
+                      color: Colors.blue[700]),
+                ),
+              ),
+              onCompleted: (String value) {
+                setState(() {
+                  _code = value;
+                });
+              },
+              onEditing: (bool value) {
+                setState(() {
+                  _onEditing = value;
+                });
+                if (!_onEditing) FocusScope.of(context).unfocus();
+              },
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const CreateNewPasswordScreen(),
+              ));
+            },
+            child: AppButton(
+              width: 277.w,
+              height: 75.h,
+              radius: 100,
+              child: Center(
+                child: Text(
+                  'RESET PASSWORD',
+                  style: TextStyle(
+                      fontSize: 20.sp,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
