@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project/screens/login_screen.dart';
+import 'package:project/widgets/app_icon.dart';
 
 import '../widgets/app_button.dart';
-import '../widgets/app_icon.dart';
-import '../widgets/text_feilds/app_drop_dowen_one.dart';
 import '../widgets/text_feilds/text_field_one.dart';
+import 'login_screen.dart';
 
-class CreateAccountPatient extends StatefulWidget {
-  const CreateAccountPatient({super.key});
+class CreateAccountCaregiver extends StatefulWidget {
+  const CreateAccountCaregiver({super.key});
 
   @override
-  State<CreateAccountPatient> createState() => _CreateAccountPatientState();
+  State<CreateAccountCaregiver> createState() => _CreateAccountCaregiverState();
 }
 
-class _CreateAccountPatientState extends State<CreateAccountPatient> {
+class _CreateAccountCaregiverState extends State<CreateAccountCaregiver> {
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
   final TextEditingController phoneNumber = TextEditingController();
   final TextEditingController password = TextEditingController();
-  final TextEditingController dropDownController = TextEditingController();
   bool isSecure = true;
-  bool agree = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +37,7 @@ class _CreateAccountPatientState extends State<CreateAccountPatient> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppIcon(
-                width: 170.w,
+                width: 200.w,
               ),
             ],
           ),
@@ -111,7 +107,7 @@ class _CreateAccountPatientState extends State<CreateAccountPatient> {
                     ],
                   ),
                   SizedBox(
-                    height: 12.h,
+                    height: 29.h,
                   ),
                   TextFeildOne(
                     controller: phoneNumber,
@@ -119,7 +115,7 @@ class _CreateAccountPatientState extends State<CreateAccountPatient> {
                     icon: Icon(Icons.phone),
                   ),
                   SizedBox(
-                    height: 12.h,
+                    height: 29.h,
                   ),
                   TextFeildOne(
                     controller: password,
@@ -135,42 +131,7 @@ class _CreateAccountPatientState extends State<CreateAccountPatient> {
                     secure: isSecure,
                   ),
                   SizedBox(
-                    height: 12.h,
-                  ),
-                  DropDowenOne(
-                    label: 'What medication are you currently on? ',
-                    controller: dropDownController,
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Row(children: [
-                    Checkbox(
-                      shape: const CircleBorder(),
-                      checkColor: Colors.black26,
-                      value: agree,
-                      onChanged: (value) {
-                        setState(() {
-                          agree = value!;
-                        });
-                      },
-                    ),
-                    Text(
-                      'I agree to the terms and conditions ',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ]),
-                  const ImageIcon(
-                    AssetImage('assets/images/Face_ID.png'),
-                    size: 60,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    height: 5.h,
+                    height: 46.h,
                   ),
                   AppButton(
                     width: 360.w,

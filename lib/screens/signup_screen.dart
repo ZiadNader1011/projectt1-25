@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project/widgets/app_button.dart';
 
 import '../widgets/app_icon.dart';
+import 'create_account_patient.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -37,22 +38,32 @@ class SignupScreen extends StatelessWidget {
           SizedBox(
             height: 26.h,
           ),
-          AppButton(
-            width: 360.w,
-            child: Center(
-              child: Text(
-                'Sign Up as parent',
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const CreateAccountPatient(),
+            )),
+            child: AppButton(
+              width: 360.w,
+              child: Center(
+                child: Text(
+                  'Sign Up as patient',
+                ),
               ),
             ),
           ),
           SizedBox(
             height: 46.h,
           ),
-          AppButton(
-            width: 360.w,
-            child: Center(
-              child: Text(
-                'Sign up as caregiver',
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const CreateAccountPatient(),
+            )),
+            child: AppButton(
+              width: 360.w,
+              child: Center(
+                child: Text(
+                  'Sign up as caregiver',
+                ),
               ),
             ),
           )
