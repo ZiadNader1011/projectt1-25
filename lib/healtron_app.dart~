@@ -5,8 +5,6 @@ import 'package:project/screens/on_boarding_screen.dart';
 import 'core/style/app_theme.dart';
 
 class HealtronApp extends StatelessWidget {
-  const HealtronApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

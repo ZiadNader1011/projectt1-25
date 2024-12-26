@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+
+class TextFeildOne extends StatelessWidget {
+  const TextFeildOne({super.key, required this.controller, required this.label, this.icon});
+  final TextEditingController controller;
+  final String label;
+  final IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: controller,
+
+      decoration: InputDecoration(
+        labelText: label,
+          fillColor: Theme.of(context).colorScheme.primary,
+          filled: true,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: BorderSide.none,
+          ),
+          label: Text(label),
+          prefixIcon: icon != null ? Icon(icon) : null),
+    );
+  }
+}

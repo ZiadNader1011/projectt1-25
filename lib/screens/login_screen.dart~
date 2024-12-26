@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: TextField(
                 controller: emailController,
                 decoration: InputDecoration(
-                    suffixIcon: const Icon(
+                    suffixIcon: Icon(
                       Icons.circle_rounded,
                       color: Colors.green,
                     ),
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const Spacer(),
+                Spacer(),
                 TextButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -157,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   width: 5.w,
                 ),
-                const ImageIcon(
+                ImageIcon(
                   AssetImage('assets/images/Face_ID.png'),
                   size: 60,
                   color: Colors.white,
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignupScreen(),
+                        builder: (context) => SignupScreen(),
                       ));
                     },
                     child: Text(
@@ -186,11 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignupScreen(),
-                      ));
-                    },
+                    onPressed: () {},
                     child: Text(
                       'Create an account!',
                       style: TextStyle(
@@ -209,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     left: 0,
                     right: 0,
                     bottom: 25.h,
-                    child: const Divider(
+                    child: Divider(
                       color: Colors.black,
                       thickness: 2,
                     ),
@@ -266,7 +262,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const Icon(
+              Icon(
                 Icons.arrow_forward,
                 color: Colors.white,
                 size: 50.0,
