@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project/screens/add_medicine_screen.dart';
 import 'package:project/widgets/medicine_item.dart';
+
+import '../screens/add_patient_screen.dart';
 
 class ProfileBottomBanner extends StatelessWidget {
   const ProfileBottomBanner({super.key});
@@ -8,10 +11,10 @@ class ProfileBottomBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         width: double.infinity,
         height: 420.h,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color(0xff3B5998),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40),
@@ -37,7 +40,7 @@ class ProfileBottomBanner extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 MedicineItem(
@@ -47,6 +50,11 @@ class ProfileBottomBanner extends StatelessWidget {
               ],
             ),
             GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const AddMedicineScreen(),
+                ));
+              },
               child: Row(
                 children: [
                   Image.asset(
@@ -65,7 +73,35 @@ class ProfileBottomBanner extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const AddPatientScreen(),
+                ));
+              },
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/images/icon_6.png',
+                    height: 80.h,
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  Text(
+                    'add patient',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 30.sp,
+                        color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
           ]),
         ));
   }

@@ -35,22 +35,6 @@ class _DropDowenOneState extends State<DropDowenOne> {
         ),
         borderRadius: BorderRadius.circular(5.r),
         dropdownColor: Theme.of(context).colorScheme.primary,
-
-        // width: double.infinity,
-        // menuStyle: MenuStyle(
-        //   elevation: 0,
-        //   backgroundColor: ,
-        //   shadowColor: Colors.transparent,
-        // ),
-        // textStyle: TextStyle(color: Colors.white, fontSize: 20.sp),
-        // controller: widget.controller,
-        // trailingIcon: Icon(
-        //   Icons.arrow_drop_down,
-        // ),
-        // label: Text(
-        //   widget.label,
-        //   style: TextStyle(color: Colors.white, fontSize: 20.sp),
-        // ),
         items: <DropdownMenuItem<Object>>[
           DropdownMenuItem(value: 1, child: Text('a')),
           DropdownMenuItem(value: 2, child: Text('b')),

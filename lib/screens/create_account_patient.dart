@@ -123,7 +123,7 @@ class _CreateAccountPatientState extends State<CreateAccountPatient> {
                   ),
                   TextFeildOne(
                     controller: password,
-                    label: 'phone number',
+                    label: 'PASSWORD',
                     icon: IconButton(
                       icon: Icon(
                           isSecure ? Icons.visibility_off : Icons.visibility),
