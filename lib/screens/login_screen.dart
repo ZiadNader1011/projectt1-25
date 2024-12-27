@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:project/screens/face_deduction_screen.dart';
 import 'package:project/screens/forget_password_screen.dart';
 import 'package:project/screens/home_screen.dart';
 import 'package:project/screens/signup_screen.dart';
 
 import '../widgets/app_button.dart';
+
+enum _SupportState {
+  unknown,
+  supported,
+  unsupported,
+}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,6 +27,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
   bool isSecure = true;
   bool remember = false;
+  final LocalAuthentication auth = LocalAuthentication();
+  _SupportState _supportState = _SupportState.unknown;
+  bool? _canCheckBiometrics;
+  List<BiometricType>? _availableBiometrics;
+  String _authorized = 'Not Authorized';
+  bool _isAuthenticating = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,10 +171,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   width: 5.w,
                 ),
-                const ImageIcon(
-                  AssetImage('assets/images/Face_ID.png'),
-                  size: 60,
-                  color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const AuthScreen(),
+                    ));
+                  },
+                  child: const ImageIcon(
+                    AssetImage('assets/images/Face_ID.png'),
+                    size: 60,
+                    color: Colors.white,
+                  ),
                 )
               ],
             ),
