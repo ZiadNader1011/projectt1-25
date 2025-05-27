@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MedicineItem extends StatelessWidget {
-  const MedicineItem(
+  // List of medicines with their quantities
+  final List<Map<String, String>> medicines = [
+    {'name': 'Ketoprofen', 'quantity': '2 mg'},
+    {'name': 'Ibuprofen', 'quantity': '400 mg'},
+    {'name': 'Paracetamol', 'quantity': '500 mg'},
+    {'name': 'Aspirin', 'quantity': '100 mg'},
+    {'name': 'Metformin', 'quantity': '500 mg'},
+    // Add more medicines as needed
+  ];
+    MedicineItem(
       {super.key,
       required this.color,
       required this.label,

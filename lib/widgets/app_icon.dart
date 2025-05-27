@@ -7,7 +7,7 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/app_icon.png',
+      'assets/images/icoon.png',
       width: width,
     );
   }

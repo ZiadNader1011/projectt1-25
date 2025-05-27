@@ -1,4 +1,23 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Ensure you're using a compatible version of the Android Gradle Plugin
+        classpath 'com.android.tools.build:gradle:8.2.0'  // or latest version
+        classpath 'com.google.gms:google-services:4.3.15'  // or latest version
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0' // or latest Kotlin version
+
+    }
+}
+
 allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = JavaVersion.VERSION_20
+        targetCompatibility = JavaVersion.VERSION_20
+        options.compilerArgs += ["-Xlint:-options", "-Xlint:-deprecation", "-Xlint:-unchecked"]
+    }
     repositories {
         google()
         mavenCentral()
@@ -16,4 +35,3 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
-

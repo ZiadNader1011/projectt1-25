@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'login_screen.dart';
+
 
 import '../widgets/app_button.dart';
 import '../widgets/app_icon.dart';
@@ -51,7 +53,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16.sp,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w600,
                 color: Colors.black,
               ),
             ),
@@ -96,15 +98,17 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              // Navigator.of(context).pushReplacement(MaterialPageRoute(
-              //   builder: (context) => const VerifyCodeScreen(),
-              // ));
-            },
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                );
+              },
             child: AppButton(
               radius: 100,
-              width: 200.w,
-              height: 75.h,
+              width: 150.w,
+              height: 60.h,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -122,7 +126,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                   )
                 ],
               ),
-            ),
+            )
           ),
         ],
       ),
